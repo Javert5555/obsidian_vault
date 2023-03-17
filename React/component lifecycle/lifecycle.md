@@ -24,3 +24,6 @@
 5.  componentDidUpdate(prevProps, prevState, snapshot): вызывается сразу после обновления компонента (если shouldComponentUpdate возвращает true). В качестве параметров передаются старые значения объектов props и state. Третий параметр - значение, которое возвращает метод `getSnapshotBeforeUpdate`! Рекомендуется выполнять сайд-эффекты (Вызовы AJAX и т.д.)
 
 ![[6t7slszbqm-tvq5f8twwanrmdgw.jpeg]]
+
+https://metanit.com/web/react/2.6.php
+https://machinelearningmastery.ru/reviewing-the-react-component-lifecycle-105b7649e451/

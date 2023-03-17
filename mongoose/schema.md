@@ -69,3 +69,6 @@ const child = new Schema({
 ```
 
 `model.isNew()`: проверьте, не сохранена ли модель на сервере.
+
+## validate()
+https://mongoosejs.com/docs/api.html#schematype_SchemaType-validate
