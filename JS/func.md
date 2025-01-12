@@ -5,3 +5,36 @@
 ## Функция высшего порядка
 
 Функция высшего порядка - это функция, которая принимает в качестве аргумента другую функцию и/или возвращает другую функцию.
+
+## Callback
+
+Callback (колбэк, функция обратного вызова) — функция, которая вызывается в ответ на совершение некоторого события.
+## Arrow Function
+
+this стрелочной функции такой же как и внешней функции, если внешней функции нет, то this = Window. 
+
+```js
+const obj = {
+    fun1: function() {
+        console.log(this) // obj
+        function fun2() {
+            console.log(this) // Window
+        }
+        fun2()
+        const fun3 = () => {
+            console.log(this) // obj
+        }
+        fun3()
+    }
+}
+
+function fun4 () {
+    console.log(this) // Window
+}
+fun4()
+
+const fun5 = () => {
+    console.log(this) // Window
+}
+fun5()
+```

@@ -302,3 +302,10 @@ p ~ span {
 *.warning {color:red;}
 *#maincontent {border: 1px solid blue;}
 ```
+
+## BEB
+
+![[59.webp]]
+
+![[05-bem-naming-structure.svg]]
+
