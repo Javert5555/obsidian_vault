@@ -14,23 +14,14 @@ const Tree = mongoose.model('Tree', schema);
 В качестве типа данных можно указывать одно из следующих значений:
 
 -   String
-    
 -   Number
-    
 -   Date
-    
 -   Buffer
-    
 -   Boolean
-    
 -   Mixed
-    
 -   ObjectId
-    
 -   Array
-    
 -   Decimal128
-    
 -   Map
 
 ## Значение по умолчанию

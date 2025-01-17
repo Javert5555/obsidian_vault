@@ -1,0 +1,3 @@
+Artisan - интерфейс командной строки, встроенный в Laravel, представляет из себя набор команд для разработки приложения, а именно: создание миграций `php artisan make:migration migration_name`, создание моделей `php artisan make:model ModelName`, создание контроллеров `php artisan make:controller ControllerName` и т.д.
+
+Обеспечивает доступ к командам Laravel для управления проектом, например запуск миграций (в порядке их создания) `php artisan migrate`, откат миграций `php artisan migrate:rollback` или очистка кэша `php artisan cache:clear`.
