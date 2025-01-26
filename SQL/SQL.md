@@ -238,6 +238,42 @@ https://metanit.com/sql/mysql/6.4.php
 
 `SELECT concat(surname, " ", age) AS surname_age FROM teacher;` - конкантинирует (складывает) несколько значений столбцов друг с другом, со строками, подстроками и так далее
 
+## COALESCE
+`COALESCE` позволяет обрабатывать значения NULL, возвращая первое ненулевое значение из списка выражений.
+```sql
+SELECT product.name, product_photo.url FROM product LEFT JOIN product_photo ON product.id = product_photo.product_id;
+```
+Результат:
+![[Pasted image 20250126223609.png]]
+
+```sql
+SELECT COALESCE(product.name, product_photo.url) FROM product LEFT JOIN product_photo ON product.id = product_photo.product_id;
+```
+Результат:
+![[Pasted image 20250126223702.png]]
+
+`COALESCE` можно рассматривать как сокращенную версию оператора CASE. Следующие два выражения эквивалентны:
+```sql
+SELECT COALESCE(expression1, expression2);
+```
+аналогично:
+```sql
+SELECT CASE WHEN expression1 IS NOT NULL THEN expression1 ELSE expression2 END;
+```
+
+`COALESCE` может установить значение по умолчанию для колонки (если встретилось поле зо значением `NULL`):
+```SQL
+SELECT product.name, product_photo.url FROM product LEFT JOIN product_photo ON product.id = product_photo.product_id;
+```
+Результат:
+![[Pasted image 20250126225721.png]]
+
+Добавим `COALESCE`:
+```sql
+SELECT product.name, COALESCE(product_photo.url, 'empty_url') FROM product LEFT JOIN product_photo ON product.id = product_photo.product_id;
+```
+Результат:
+![[Pasted image 20250126225819.png]]
 ## SUBSTRING
 `SELECT CONCAT(NAME, '(', SUBSTRING(OCCUPATION, 1,1), ')') FROM OCCUPATIONS ORDER BY NAME;` - сконкантинировать значение столбца NAME с первой буквой столбца OCCUPATION обёрнутой в скобки
 
@@ -249,7 +285,7 @@ GROUP BY OCCUPATION
 ORDER BY COUNT(OCCUPATION);
 ```
 
-## Базовы понятия
+## Базовые понятия
 
 Следующая команда будет запускать клиент MySQL с обычными правами пользователя, и мы получим права администратора внутри базы данных только с помощью аутентификации:
 
