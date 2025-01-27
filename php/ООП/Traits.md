@@ -29,7 +29,7 @@ $new_empl->sayHello(); // 'emp'
 
 После добавления трейта с помощью оператора `use` класс может использовать его методы, как-будто они определены в самом этом классе.
 
-Следует учитывать, что при наследовании методы трейта переопределяют унаследованные методы с тем же именем:
+**Трейты в PHP не переопределяют методы самого класса:**
 
 ```php
 trait Person {
@@ -41,7 +41,7 @@ trait Person {
 
 
 class Employee {
-	use Person;
+	use Person
 
 	public function __construct(
 		private string $name = 'name',
@@ -54,4 +54,33 @@ class Employee {
 
 $new_empl = new Employee('emp');
 $new_empl->sayHello(); // 'hi'
+```
+
+Следует учитывать, что при наследовании методы трейта переопределяют унаследованные методы с тем же именем:
+
+```php
+trait Person {
+    public function sayHello() {
+        echo "$this->name trait\n";
+    }
+}
+
+abstract class People {
+    protected string $name;
+
+    public function sayHello() {
+        echo $this->name;
+    }
+}
+
+class Employee {
+    use Person {}
+
+    function __construct(
+        public string $name
+    ) {}
+}
+
+$empl1 = new Employee('alex');
+$empl1->sayHello(); // alex trait
 ```
