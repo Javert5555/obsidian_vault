@@ -61,10 +61,16 @@ DROP TABLE IF EXISTS orders;
 
 `SELECT * FROM teacher WHERE surname = "Петров";` - получить все значения полей строк, где значение поля surname равно значению "Петров" (при сравнении со строковыми, значения оборачиваются в "")
 
+### `LIMIT`
 `SELECT * FROM teacher WHERE surname = "Петров" LIMIT 2;` - ограничиваем вывод до первых 2 строк (значений всех полей)
 
+### `OFFSET`
+`SELECT * FROM customer OFFSET 2;` - пропускает первые две строки и выводит все остальные (задаёт смещение);
+
+### `AS`
 `SELECT id as 'Идентификатор', surname as 'Фамилия' FROM teacher;` - возвращаем значения полей с переименованными названиями колонок(из id в Идентификатор и из surname в Фамилия)
 
+### `COUNT`
 `SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;` - вывести разность между количеством всех значений столбца CITY и количеством уникальных значений столбца CITY
 
 ## Сортировка данных (выборка) (`ORDER BY`)
@@ -122,7 +128,7 @@ DROP TABLE IF EXISTS orders;
 
 `SELECT * FROM teacher WHERE age BETWEEN 30 AND 45;` - получить все значения полей строк (все строки), где значение поля age больше располагается между 30 и 45 включительно (оба значения).
 
-## SQL Joins
+## SQL Joins (объединение таблиц)
 
 Вот различные типы соединений в SQL:
 - `(INNER) JOIN`: возвращает записи, которые имеют совпадающие значения в обеих таблицах.
@@ -141,7 +147,7 @@ DROP TABLE IF EXISTS orders;
 
 `SELECT teacher.surname, lesson.name FROM teacher RIGHT OUTER JOIN lesson ON teacher.id = lesson.teacher_id;` - получить значения столбцов surname (из ЛЕВОЙ таблицы teacher) и name (из ПРАВОЙ таблицы lesson)  из объединения таблиц (RIGHT OUTER JOIN) по значениям id (из таблицы teacher) и по значениям teacher_id (из таблицы lesson) - (значения teacher.id, для которых не нашлось соответствия в правой таблице просто не возвращаются)
 
-## Вертикальное объединение (UNION)
+## Вертикальное объединение (UNION) (объединение запросов)
 
 Оператор [UNION](https://www.w3schools.com/sql/sql_union.asp) используется для вертикального объединения результатов вызовов двух и более операторов SELECT
 Условия для нормальной работы оператора UNION:
@@ -190,7 +196,7 @@ https://andreyex.ru/bazy-dannyx/bd-mysql/mysql-pivot-povorot-strok-v-stolbtsy/
 ! ! ! !Разобраться с агрегирующими функциями! ! ! !
 
 ### Запрос с `GROUP BY` и `HAVING`
-
+`HAVING` почти всегда с какой-либо агрегирущей функцией
 ``` SQL
 SELECT column1, column2, SUM(column3) AS sum_column3
 FROM table_name
