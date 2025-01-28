@@ -73,7 +73,7 @@ abstract class People {
     }
 }
 
-class Employee {
+class Employee extends People {
     use Person {}
 
     function __construct(
@@ -83,4 +83,32 @@ class Employee {
 
 $empl1 = new Employee('alex');
 $empl1->sayHello(); // alex trait
+```
+
+Приватные методы trait будут доступны в классе:
+
+```php
+trait Person
+{
+    private function sayHello() {
+        echo "$this->name trait\n";
+    }
+}  
+
+class Employee extends People {
+    use Person {}
+
+    function __construct(
+
+        public string $name
+
+    ) {}
+
+    function getName() {
+        $this->sayHello();
+    }
+}
+
+$empl1 = new Employee('alex');
+$empl1->getName(); // alex trait
 ```
