@@ -98,3 +98,4 @@ serpent - змея
 beneath - под
 tender - нежный/тендер
 embrace - объятие
+ensure - гарантировать
