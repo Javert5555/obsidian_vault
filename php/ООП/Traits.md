@@ -38,8 +38,6 @@ trait Person {
 	}
 }
 
-
-
 class Employee {
 	use Person
 
