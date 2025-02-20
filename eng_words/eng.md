@@ -11,6 +11,7 @@ relate - иметь отношение к/относиться/иметь отн
 
 ennoy - раздражать
 obviously - очевидно
+revert - возвращаться/вернуть/возврат
 capabilities
 define
 standalone
