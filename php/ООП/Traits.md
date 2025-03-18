@@ -16,7 +16,7 @@ trait Person {
 }
 
 class Employee {
-	use Person;
+	use Person {}
 	
 	public function __construct(
 		private string $name = 'name',
@@ -39,7 +39,7 @@ trait Person {
 }
 
 class Employee {
-	use Person
+	use Person {}
 
 	public function __construct(
 		private string $name = 'name',
@@ -109,4 +109,29 @@ class Employee extends People {
 
 $empl1 = new Employee('alex');
 $empl1->getName(); // alex trait
+```
+
+В PHP ключевое слово `insteadof` используется для разрешения конфликтов при использовании нескольких трейтов, если в них определены методы с одинаковыми именами. Оно позволяет указать, какой метод из трейта использовать в случае конфликта.
+
+```php
+trait Person {
+    public function sayHello() {
+        var_export('hi');
+    }
+}
+
+trait RussianMan {
+    public function sayHello() {
+        var_export('Привет');
+    }
+}
+
+class Employee {
+    use Person, RussianMan {
+        RussianMan::sayHello insteadOf Person;
+    }
+}
+
+$new_empl = new Employee();
+$new_empl->sayHello(); // 'Привет'
 ```
