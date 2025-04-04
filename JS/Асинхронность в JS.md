@@ -133,7 +133,9 @@ alert("code");
 Асинхронная функция помечается специальным ключевым словом `async`:
 ```js
 async function request() {}
+
 const req = async () => {}
+
 class SomeClass {
 	async request() {}
 }
