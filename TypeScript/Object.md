@@ -1,3 +1,4 @@
+Пример:
 
 ``` TS
 const obj1 : {name: string; age: number} = {
@@ -13,13 +14,15 @@ console.log(obj1) // { name: "name2", age: 22 }
 obj.age = 'old' // error: Type 'string' is not assignable to type 'number'
 ```
 
-## Нельзя добавлять свойства, неопределённые в типе переменной:
+Нельзя добавлять свойства, неопределённые в типе переменной:
 
 ```ts
 obj1.email = 'email@mail.com' // error: Property 'email' does not exist on type '{ name: string; age: number; }'
 ```
 
 ## Необязательные свойства:
+
+TypeScript позволяет сделать свойства необязательными. Для этого после названия свойства указывается знак вопроса `?`:
 
 ```ts
 const obj2 : {name: string; age?: number} = {
@@ -125,3 +128,6 @@ function fn3({name, age} : {name: string; age?: number}) : void {
 }
 fn2(obj3) // name3 33
 ```
+
+Можно вынести тип объекта с помощью ключевого слова `type`:
+
