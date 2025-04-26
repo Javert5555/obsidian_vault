@@ -68,7 +68,8 @@ console.log(newObj.name) // name
 console.log(newObj.age) // undefined
 console.log(newObj.status) // error TS2339: Property 'status' does not exist on type 'obj1'
 ```
-## Проверка наличия свойств:
+## Проверка наличия свойств (оператор in):
+Оператор in позволяет проверить наличие определенного свойства в объекта.
 
 ```ts
 const obj2 : {name: string; age?: number} = {
