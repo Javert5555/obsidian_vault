@@ -58,16 +58,15 @@ function fn3({name, age} : {name: string; age?: number}) : void {
 fn2(obj3) // name3 33
 ```
 
-При обращении к неустановленному необязательному свойству мы получим undefined, а при обращении к несуществующему свойству получим ошибку:
-
-```TS
+>[!danger]
+>При обращении к неустановленному необязательному свойству мы получим undefined, а при обращении к несуществующему свойству получим ошибку:
+>```TS
 type obj1 = {name: string, age?: number}
 const newObj : obj1 = {name: 'name'}
-
 console.log(newObj.name) // name
 console.log(newObj.age) // undefined
 console.log(newObj.status) // error TS2339: Property 'status' does not exist on type 'obj1'
-```
+>```
 ## Проверка наличия свойств (оператор in):
 Оператор in позволяет проверить наличие определенного свойства в объекта.
 
